@@ -22,7 +22,7 @@ import axios from 'axios'
 
             async submit() {
                
-                axios
+                await axios
                     .put('http://localhost:3000/categories/' + this.ObjCategory.id, {
                         name: this.ObjCategory.name, 
                         description: this.ObjCategory.description

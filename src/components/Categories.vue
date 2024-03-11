@@ -9,22 +9,22 @@ export default {
     data() {
         return {
             categories: [],             
-            destroy: false
+            DestroyFlag: false
         }
     },
 
     methods: {
-        destroy(id) {
-            axios   
+        async deleteCategory(id) {            
+            await axios   
                 .delete(`http://localhost:3000/categories/${id}`)
                 .then((response) => {
-                    // if(response.status == 201) {
-                    //     this.destroy = true;
-                    // }
-                    console.log(response.data)
+                    if(response.status == 201) {
+                       this.DestroyFlag = true;
+                    }                    
                 })
-                .catch((error) => console.log(error))
-                // .catch((error) => (this.destroy = false))
+                .catch((error) => this.DestroyFlag = false)  
+        
+            this.$router.go()
         }
     }, 
 
@@ -33,8 +33,9 @@ export default {
             .get('http://localhost:3000/categories')
             .then(response => (this.categories = response.data))
             .catch(error => console.log(error))
-    }
+    }, 
 
+   
 }
 </script>
 
@@ -93,9 +94,12 @@ export default {
                         </RouterLink>    
 
                         <!-- Delete -->
-                        <i 
-                            @click.prevent="destroy(category.id)"
-                            class="fa-solid fa-trash ml-2 hover:cursor-pointer"></i>
+                        
+                        <button 
+                            @click="deleteCategory(category.id)"
+                            class="ml-2 hover:cursor-pointer">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                         
                     </td>
                 </tr>

@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Test from '@/components/Test.vue'
-import Count from '@/components/Count.vue'
 import Categories from '@/components/Categories.vue'
 import NewCategory from '@/components/NewCategory.vue'
 import ShowCategory from '@/components/ShowCategory.vue'
@@ -28,17 +26,8 @@ const router = createRouter({
       path: '/EditCategory/:CategoryId',
       name: 'EditCategory',
       component: EditCategory
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: Test
-    },
-    {
-      path: '/count',
-      name: 'count',
-      component: Count
-    }
+    },  
+  
   ]
 })
 
