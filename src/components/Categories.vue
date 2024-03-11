@@ -25,6 +25,10 @@ export default {
                 .catch((error) => this.DestroyFlag = false)  
         
             this.$router.go()
+        }, 
+
+        backPage() {
+            this.$router.back()
         }
     }, 
 
@@ -42,8 +46,12 @@ export default {
 <template>
     <div class="relative px-6 py-6 bg-white border-gray-100 w-full rounded-lg shadow-md lg:mt-24 md:mt-60">
         <div class="grid grid-cols-3 gap-4 w-full">
-            <div class="col-span-2">
-                <h2 class="font-bold">Lista Categories</h2>
+            <div class="col-span-2">                
+                <h2 class="font-bold text-xl">
+                    <button @click="backPage" class="text-2xl hover:text-slate-300">
+                        <i class="fa-solid fa-arrow-left mr-4"></i>
+                    </button>
+                    Lista Categories</h2>
             </div>
             <div class="flex justify-end">
                 <RouterLink 

@@ -13,27 +13,27 @@ import axios from 'axios'
         },
 
         methods: {
-            getCategory(id) {
-                axios
-                    .get('http://localhost:3000/categories/' + id)
-                    .then(response => (this.ObjCategory = response.data))
-                    .catch(error => console.log(error))
+            async getCategory(id) {
+                await axios
+                        .get('http://localhost:3000/categories/' + id)
+                        .then(response => (this.ObjCategory = response.data))
+                        .catch(error => console.log(error))
             }, 
 
             async submit() {
                
                 await axios
-                    .put('http://localhost:3000/categories/' + this.ObjCategory.id, {
-                        name: this.ObjCategory.name, 
-                        description: this.ObjCategory.description
-                    })
-                    .then((response) => {
-                        // console.log(response.data)
-                        if(response.status == 201) {
-                            this.saves = true;
-                        }
-                    })                    
-                    .catch((error) => (this.saves = false))
+                        .put('http://localhost:3000/categories/' + this.ObjCategory.id, {
+                            name: this.ObjCategory.name, 
+                            description: this.ObjCategory.description
+                        })
+                        .then((response) => {
+                            // console.log(response.data)
+                            if(response.status == 201) {
+                                this.saves = true;
+                            }
+                        })                    
+                        .catch((error) => (this.saves = false))
 
                 let params = {
                     result: 'error', 
@@ -46,6 +46,10 @@ import axios from 'axios'
                 }
 
                 this.$router.push({path: '/categories', params})
+            }, 
+
+            backPage() {
+                this.$router.back()
             }
         }, 
     
@@ -60,7 +64,11 @@ import axios from 'axios'
     <div class="relative px-6 py-6 bg-white border-gray-100 w-full rounded-lg shadow-md lg:mt-24 md:mt-60">
         <form v-if="ObjCategory">
         
-            <h2 class="font-bold text-xl">Edição Categoria </h2>
+            <h2 class="font-bold text-xl">
+                <button @click="backPage" class="text-2xl hover:text-slate-300">
+                    <i class="fa-solid fa-arrow-left mr-4"></i>
+                </button>
+                Edição Categoria </h2>
             <span>
                 {{  this.CategoryId }} - {{ ObjCategory.name }}
             </span>     

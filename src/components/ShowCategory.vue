@@ -12,11 +12,15 @@ export default {
     },
 
     methods: {
-        getCategory(id) {
-            axios
-                .get('http://localhost:3000/categories/' + id)
-                .then(response => (this.ObjCategory = response.data))
-                .catch(error => console.log(error))
+        async getCategory(id) {
+            await axios
+                    .get('http://localhost:3000/categories/' + id)
+                    .then(response => (this.ObjCategory = response.data))
+                    .catch(error => console.log(error))
+        }, 
+
+        backPage() {
+            this.$router.back()
         }
     }, 
     
@@ -29,7 +33,11 @@ export default {
 
 <template>
     <div class="relative px-6 py-6 bg-white border-gray-100 w-full rounded-lg shadow-md lg:mt-24 md:mt-60">
-        <h2 class="font-bold text-xl">Visualizar Categoria </h2>
+        <h2 class="font-bold text-xl">
+            <button @click="backPage" class="text-2xl hover:text-slate-300">
+                <i class="fa-solid fa-arrow-left mr-4"></i>
+            </button>
+            Visualizar Categoria </h2>
         <span v-if="ObjCategory">
             {{  this.CategoryId }} - {{ ObjCategory.name }}
         </span>        

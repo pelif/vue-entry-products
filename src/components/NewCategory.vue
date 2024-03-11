@@ -1,5 +1,6 @@
 <script>
     import axios from 'axios'
+    
     export default {
         name: 'NewCategory', 
         data() {
@@ -15,7 +16,7 @@
         methods: {
             async submit() {
                 
-                axios
+                await axios
                     .post('http://localhost:3000/categories', {
                         name: this.form.name, 
                         description: this.form.description
@@ -25,9 +26,7 @@
                             this.saves = true; 
                         }
                     })
-                    .catch(function (error) {
-                        this.saves = false;
-                    }); 
+                    .catch((error) => (this.saves = false)); 
 
                     let query = {
                         result: 'error', 
@@ -40,7 +39,11 @@
                     }
 
                     this.$router.push({path: '/categories', query})    
-            }            
+            }, 
+            
+            backPage() {
+                this.$router.back()
+            }
         }
 
     }
@@ -48,7 +51,11 @@
 
 <template>
     <div class="relative px-6 py-6 bg-white border-gray-100 w-full rounded-lg shadow-md lg:mt-24 md:mt-60">
-        <h2 class="font-bold">Nova Categoria</h2>
+        <h2 class="font-bold text-lg">
+            <button @click="backPage" class="text-2xl hover:text-slate-300">
+                <i class="fa-solid fa-arrow-left mr-4"></i>
+            </button>
+            Nova Categoria</h2>
         <form>
             <div class="grid grid-cols-2 gap-4 w-full py-14">            
                 <div>
