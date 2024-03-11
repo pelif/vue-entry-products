@@ -1,0 +1,19 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Escritório",
+      "description": "Materiais Gerais para Escritório"
+    },
+    {
+      "id": "2",
+      "name": "Construção",
+      "description": "Materiais de Construção"
+    },
+    {
+      "name": "EQUIPAMENTOS OPERAÇÃO",
+      "description": "EQUIPAMENTOS USADOS PELA OPERAÇÃO NO DIA A DIA DE TRABALHO",
+      "id": "fa08"
+    }
+  ]
+}

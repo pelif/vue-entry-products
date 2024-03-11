@@ -9,12 +9,26 @@ export default {
     data() {
         return {
             categories: [],             
+            destroy: false
         }
     },
 
+    methods: {
+        destroy(id) {
+            axios   
+                .delete(`http://localhost:3000/categories/${id}`)
+                .then((response) => {
+                    // if(response.status == 201) {
+                    //     this.destroy = true;
+                    // }
+                    console.log(response.data)
+                })
+                .catch((error) => console.log(error))
+                // .catch((error) => (this.destroy = false))
+        }
+    }, 
+
     mounted() {
-        const dataRoute = useRoute()
-        
         axios
             .get('http://localhost:3000/categories')
             .then(response => (this.categories = response.data))
@@ -52,7 +66,38 @@ export default {
                 <tr v-for="category in categories" :key="category.id">
                     <td class="text-center py-3 border border-slate-300">{{ category.name }}</td>
                     <td class="text-center py-3 border border-slate-300">{{ category.description }}</td>
-                    <td class="text-center py-3 border border-slate-300">...</td>
+                    <td class="text-center py-3 border border-slate-300">
+                        
+                        <!-- Show -->
+                        <RouterLink 
+                            :to="{ 
+                                name: 'ShowCategory', 
+                                params: {
+                                    CategoryId: category.id 
+                                }
+                            }" 
+                            class="text-slate-500 hover:text-slate-300">
+                            <i class="fa-solid fa-eye"></i>
+                        </RouterLink>
+                        
+                        <!-- edit -->
+                        <RouterLink 
+                            :to="{ 
+                                name: 'EditCategory', 
+                                params: {
+                                    CategoryId: category.id 
+                                }
+                            }" 
+                            class="text-slate-500 hover:text-slate-300">
+                            <i class="fa-solid fa-pen-to-square ml-2"></i>
+                        </RouterLink>    
+
+                        <!-- Delete -->
+                        <i 
+                            @click.prevent="destroy(category.id)"
+                            class="fa-solid fa-trash ml-2 hover:cursor-pointer"></i>
+                        
+                    </td>
                 </tr>
             </tbody>
         </table>
