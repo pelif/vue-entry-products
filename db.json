@@ -15,5 +15,17 @@
       "description": "EQUIPAMENTOS USADOS PELA OPERAÇÃO NO DIA A DIA DE TRABALHO",
       "id": "fa08"
     }
+  ], 
+
+  "products": [
+    {
+      "id": "1", 
+      "name": "Teclado Akko 3684", 
+      "description": "Teclado Akko 3680 - Teclado Low profile para Games com switch tátil silencioso",
+      "price": 100.00, 
+      "measure": "kg", 
+      "details": "Cor preta / Silecioso / Macio para jogos Online", 
+      "category_id": "1"
+    }
   ]
 }

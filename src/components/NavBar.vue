@@ -30,8 +30,10 @@ export default {
                     <RouterLink 
                         to="/categories"
                         class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Categorias</RouterLink>    
-                   
-                    
+
+                    <RouterLink 
+                        to="/products"
+                        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">Produtos</RouterLink>        
                 </div>
             </div>
         </nav>
