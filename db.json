@@ -14,17 +14,53 @@
       "name": "EQUIPAMENTOS OPERAÇÃO",
       "description": "EQUIPAMENTOS USADOS PELA OPERAÇÃO NO DIA A DIA DE TRABALHO",
       "id": "fa08"
+    },
+    {
+      "id": "41ea",
+      "name": "Informática",
+      "description": "Equipamentos de Informática em geral"
+    },
+    {
+      "id": "573a",
+      "name": "Category Test 1111",
+      "description": "cat test 11111"
     }
-  ], 
-
+  ],
   "products": [
     {
-      "id": "1", 
-      "name": "Teclado Akko 3684", 
+      "id": "1",
+      "name": "Teclado Akko 3684",
       "description": "Teclado Akko 3680 - Teclado Low profile para Games com switch tátil silencioso",
-      "price": 100.00, 
-      "measure": "kg", 
-      "details": "Cor preta / Silecioso / Macio para jogos Online", 
+      "price": 100,
+      "measure": "kg",
+      "details": "Cor preta / Silecioso / Macio para jogos Online",
+      "category_id": "1"
+    },
+    {
+      "id": "4c4b",
+      "name": "Product Test 001",
+      "description": "This is a first test of my product 001",
+      "price": "100",
+      "measure": "KG",
+      "details": "THis is details about my first prodct registered",
+      "category_id": "1"
+    },
+    {
+      "id": "33f5",
+      "name": "Mouse Logitech m6",
+      "description": "Mouse Logitech M6 para dia a dia de trabalho nos computadores da operação",
+      "price": "100",
+      "measure": "g",
+      "details": "Mouse Logitech M6 para dia a dia de trabalho nos computadores da operação",
+      "category_id": "fa08"
+    },
+    {
+      "id": "b835",
+      "name": "Impressora Canon 4115",
+      "description": "Teste Produto Impressora ! ",
+      "price": "450",
+      "measure": "kg",
+      "details": "Impressora Canon 4115 para escritório ",
       "category_id": "1"
     }
   ]

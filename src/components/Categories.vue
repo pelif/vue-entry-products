@@ -9,7 +9,9 @@ export default {
     data() {
         return {
             categories: [],             
-            DestroyFlag: false
+            DestroyFlag: false, 
+            result: null, 
+            message: null
         }
     },
 
@@ -29,10 +31,42 @@ export default {
 
         backPage() {
             this.$router.back()
+        }, 
+
+        displayAlert() {
+            const el = document.querySelector("#message"); 
+            
+            if(this.result == 'success') {
+                el.classList.add('bg-green-200')
+                el.classList.add('text-green-950')
+            } else {
+                el.classList.add('bg-red-200')
+                el.classList.add('text-red-950')
+            }
+
+            el.classList.remove("hidden"); 
+            setTimeout(this.hideMessage, 5000)
+        }, 
+
+        hideMessage() {
+            const el = document.querySelector("#message")
+            el.classList.add("hidden")
         }
+
     }, 
 
     mounted() {
+
+        const router = useRoute()
+
+        console.log(router.query)
+
+        if (router.query && router.query.result) {
+            this.result = router.query.result
+            this.message = router.query.msg   
+            this.displayAlert()
+        }
+
         axios
             .get('http://localhost:3000/categories')
             .then(response => (this.categories = response.data))
@@ -44,6 +78,9 @@ export default {
 </script>
 
 <template>
+     <div id="message" class="fixed top-0 right-0 text-bold text-center py-8 px-8 rounded-lg text-sm z-50 shadow-xl hidden">
+        {{ message }}
+    </div>
     <div class="relative px-6 py-6 bg-white border-gray-100 w-full rounded-lg shadow-md lg:mt-24 md:mt-60">
         <div class="grid grid-cols-3 gap-4 w-full">
             <div class="col-span-2">                

@@ -55,7 +55,7 @@ export default {
         }
     }, 
 
-    async mounted() {
+    async mounted() {        
         await axios 
                 .get(`http://localhost:3000/categories`)
                 .then(response => (this.ObjCategory = response.data))
@@ -82,7 +82,7 @@ export default {
                         id="category_id" 
                         class="bg-white form-input w-full mt-3 rounded-lg text-gray-700 py-3 px-3 border-2 border-gray-400"
                         v-model="form.category_id">
-                        <option value="Selecione uma Categoria">SELECIONE UMA CATEGORIA</option>
+                        <option class="py-6 px-3" value="Selecione uma Categoria">SELECIONE UMA CATEGORIA</option>
                         <option v-for="category in ObjCategory" :value="category.id">{{ category.name.toUpperCase() }}</option>
                     </select>
                 </div>

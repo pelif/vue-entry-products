@@ -21,21 +21,24 @@
                         name: this.form.name, 
                         description: this.form.description
                     })
-                    .then(function (response) {                        
+                    .then(function (response) {      
+                        console.log(response.status)                  
                         if(response.status == 201) {
+                            console.log('Camed Here!')
                             this.saves = true; 
+                            console.log(saves)
                         }
                     })
                     .catch((error) => (this.saves = false)); 
 
-                    let query = {
-                        result: 'error', 
-                        msg: 'Não foi possível Criar a Categoria!'
-                    }; 
+                    let query = {} 
 
                     if(this.saves) {
                         query.result = 'success'
                         query.msg = 'Categoria Criada com Sucesso!'
+                    } else {
+                        query.result = 'error'
+                        query.msg = 'Não foi possível Criar a Categoria!'
                     }
 
                     this.$router.push({path: '/categories', query})    
