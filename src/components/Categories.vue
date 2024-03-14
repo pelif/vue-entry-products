@@ -25,8 +25,19 @@ export default {
                     }                    
                 })
                 .catch((error) => this.DestroyFlag = false)  
+            
+            let query = {
+                result: 'error', 
+                msg: 'Não foi possível remover o categoria!'
+            }; 
+
+            if(this.DestroyFlag) {
+                query.result = 'success'
+                query.msg = 'Categoria removido com sucesso!'
+            }
+
         
-            this.$router.go()
+            this.$router.go(query)
         }, 
 
         backPage() {
