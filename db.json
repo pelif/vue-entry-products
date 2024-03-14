@@ -24,6 +24,11 @@
       "id": "573a",
       "name": "Category Test 1111",
       "description": "cat test 11111"
+    },
+    {
+      "id": "d2be",
+      "name": "TEST 001",
+      "description": "TEST 001"
     }
   ],
   "products": [
@@ -62,6 +67,33 @@
       "measure": "kg",
       "details": "Impressora Canon 4115 para escritório ",
       "category_id": "1"
+    },
+    {
+      "id": "e1b8",
+      "name": "TEST PRODCIT 001",
+      "description": "TEST PRD 001",
+      "price": "100",
+      "measure": "KG",
+      "details": "TEST PRD 001",
+      "category_id": "dc6e"
+    },
+    {
+      "id": "77ae",
+      "name": "TEST PRD 02",
+      "description": "TEST PRD 02",
+      "price": "100",
+      "measure": "KG",
+      "details": "TEST PRD 02",
+      "category_id": "339e"
+    },
+    {
+      "id": "aaa2",
+      "name": "PRODUCT 001",
+      "description": "PRODUCT 001",
+      "price": "100",
+      "measure": "KG ",
+      "details": "PRODUCT TEXT 001",
+      "category_id": "41ea"
     }
   ]
 }

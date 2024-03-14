@@ -3,13 +3,14 @@
     
     export default {
         name: 'NewCategory', 
+
         data() {
             return {
                 form: {
                     name: '', 
                     description: ''
                 }, 
-                saves: false             
+                SaveCategory: false             
             }
         }, 
 
@@ -21,25 +22,22 @@
                         name: this.form.name, 
                         description: this.form.description
                     })
-                    .then(function (response) {      
-                        console.log(response.status)                  
-                        if(response.status == 201) {
-                            console.log('Camed Here!')
-                            this.saves = true; 
-                            console.log(saves)
+                    .then((response) => {                              
+                        if(response.status == 201) {                            
+                            this.SaveCategory = true;                                  
                         }
                     })
-                    .catch((error) => (this.saves = false)); 
+                    .catch((error) => (this.SaveCategory = false)); 
 
-                    let query = {} 
+                    let query = {
+                        result: 'error', 
+                        msg: 'Não foi possível cadastrar o produto'
+                    } 
 
-                    if(this.saves) {
+                    if(this.SaveCategory) {
                         query.result = 'success'
                         query.msg = 'Categoria Criada com Sucesso!'
-                    } else {
-                        query.result = 'error'
-                        query.msg = 'Não foi possível Criar a Categoria!'
-                    }
+                    } 
 
                     this.$router.push({path: '/categories', query})    
             }, 

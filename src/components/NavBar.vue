@@ -6,7 +6,7 @@ export default {
 </script>
 
 <template>
-    <div class="fixed left-0 top-0 w-full h-40">
+    <div class="fixed left-0 top-0 w-full h-20 z-50">
         <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
             <div class="flex items-center flex-shrink-0 text-white mr-6">
                 <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"

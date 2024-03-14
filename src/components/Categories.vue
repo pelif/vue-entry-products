@@ -59,8 +59,6 @@ export default {
 
         const router = useRoute()
 
-        console.log(router.query)
-
         if (router.query && router.query.result) {
             this.result = router.query.result
             this.message = router.query.msg   
