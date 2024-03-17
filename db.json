@@ -32,13 +32,13 @@
       "category_id": "1"
     },
     {
-      "id": "4c4b",
-      "name": "Product Test 001",
-      "description": "This is a first test of my product 001",
+      "name": "TESTE APDATE 001",
+      "description": "TEST UPDATE 001",
       "price": "100",
       "measure": "KG",
-      "details": "THis is details about my first prodct registered",
-      "category_id": "1"
+      "details": "TEST UPDATE 001 DETAILS",
+      "category_id": "1",
+      "id": "4c4b"
     },
     {
       "id": "33f5",
@@ -50,13 +50,13 @@
       "category_id": "fa08"
     },
     {
-      "id": "b835",
-      "name": "Impressora Canon 4115",
-      "description": "Teste Produto Impressora ! ",
+      "name": "TEST PRODUTO IMPRESSORA",
+      "description": "TEST PRODUTO IMPRESSORA",
       "price": "450",
       "measure": "kg",
-      "details": "Impressora Canon 4115 para escritório ",
-      "category_id": "1"
+      "details": "DETALHES TEST PRODUTO IMPRESSORA",
+      "category_id": "1",
+      "id": "b835"
     },
     {
       "id": "e1b8",

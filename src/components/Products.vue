@@ -8,20 +8,21 @@ export default {
         return {
             products: [],
             DestroyFlag: false,
-            result: null, 
-            message: null
+            result: null,
+            message: null,
+            category: null
         }
     },
 
     methods: {
-        backPage() {
-            this.$router.go()
-        }, 
+        async backPage() {
+            await this.$router.go()
+        },
 
-        displayAlert() {
-            const el = document.querySelector("#message"); 
-            
-            if(this.result == 'success') {
+        async displayAlert() {
+            const el = document.querySelector("#message");
+
+            if (this.result == 'success') {
                 el.classList.add('bg-green-200')
                 el.classList.add('text-green-950')
             } else {
@@ -29,37 +30,58 @@ export default {
                 el.classList.add('text-red-950')
             }
 
-            el.classList.remove("hidden"); 
-            setTimeout(this.hideMessage, 5000)
-        }, 
+            el.classList.remove("hidden");
+            await setTimeout(this.hideMessage, 5000)
+        },
 
         hideMessage() {
             const el = document.querySelector("#message")
             el.classList.add("hidden")
+        },
+
+        async getNameCategory(CategoryId) {
+            await axios
+                .get(`http://localhost:3000/categories/${CategoryId}`)
+                .then((response) => {
+                    if (response.status == 201 || response.status == 200) {
+                        this.category = response.data.name
+                    }
+
+                    if (response.status == 404) {
+                        this.category = 'Não Vinculado a uma categoria'
+                    }
+                })
+                .catch(error => console.log(error))
         }
     },
 
-    mounted() {
+    beforeMount() {
+
+        setTimeout(alert(1111), 2000)        
+    }, 
+
+    async mounted() {
 
         const router = useRoute()
 
         if (router.query && router.query.result) {
             this.result = router.query.result
-            this.message = router.query.msg   
+            this.message = router.query.msg
             this.displayAlert()
         }
 
-        axios
-            .get('http://localhost:3000/products')
-            .then(response => (this.products = response.data))
-            .catch(error => console.log(error))
+        await axios
+                .get('http://localhost:3000/products')
+                .then(response => (this.products = response.data))
+                .catch(error => console.log(error))
     }
 }
 
 </script>
 
 <template>
-    <div id="message" class="fixed top-0 right-0 text-bold text-center py-8 px-8 rounded-lg text-sm z-50 shadow-xl hidden">
+    <div id="message"
+        class="fixed top-0 right-0 text-bold text-center py-8 px-8 rounded-lg text-sm z-50 shadow-xl hidden">
         {{ message }}
     </div>
     <div class="relative px-6 py-6 bg-white border-gray-100 w-full rounded-lg shadow-md lg:mt-24 md:mt-60">
@@ -81,13 +103,13 @@ export default {
         </div>
 
         <table
-            class="table-auto mt-12 border-collapse border-spacing-1 border border-slate-400 p-0 rounded-lg lg:w-36 md:w-full">
+            class="table-auto mt-12 border-collapse border-spacing-1 border border-slate-400 p-0 rounded-lg lg:w-36 md:w-full w-full">
             <thead class="bg-gray-100 py-3 px-3 ">
                 <tr class="py-3 px-3 text-center">
                     <th class="border border-slate-300 px-28 py-2 text-center font-semibold">Produto</th>
                     <th class="border border-slate-300 px-48 py-2 text-center font-semibold">Descricao</th>
                     <th class="border border-slate-300 px-16 py-2 text-center font-semibold">Preço</th>
-                    <th class="border border-slate-300 px-16 py-2 text-center font-semibold">Categoria</th>
+                    <th class="border border-slate-300 px-16 py-2 text-center font-semibold">Medida</th>
                     <th class="border border-slate-300 px-16 py-2 text-center font-semibold">Ações</th>
                 </tr>
             </thead>
@@ -95,27 +117,30 @@ export default {
                 <tr v-for="product in products" :key="product.id">
                     <td class="text-center py-3 border border-slate-300">{{ product.name }}</td>
                     <td class="text-center py-3 border border-slate-300">{{ product.description }}</td>
-                    <td class="text-center py-3 border border-slate-300">{{ product.price }}</td>
-                    <td class="text-center py-3 border border-slate-300">Categoria Name (Filter)</td>
+                    <td class="text-center py-3 border border-slate-300">{{ product.price.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }}</td>
+                    <td class="text-center py-3 border border-slate-300">{{ product.measure }}</td>
                     <td class="text-center py-6 border border-slate-300">
 
                         <!-- Show -->
-                        <RouterLink :to="{
-                        name: 'ShowProduct',
-                        params: {
-                            ProductId: product.id
-                        }
-                    }" class="text-slate-500 hover:text-slate-300">
+                        <RouterLink 
+                            :to="{
+                                name: 'ShowProduct',
+                                params: {
+                                    ProductId: product.id
+                                }
+                            }" 
+                            class="text-slate-500 hover:text-slate-300">
                             <i class="fa-solid fa-eye"></i>
                         </RouterLink>
 
-                        <!-- edit -->
-                        <RouterLink :to="{
-                        name: 'EditProduct',
-                        params: {
-                            ProductId: product.id
-                        }
-                    }" class="text-slate-500 hover:text-slate-300">
+                        <RouterLink 
+                            :to="{
+                                name: 'EditProduct', 
+                                params: {
+                                    ProductId: product.id
+                                }
+                            }"
+                            class="text-slate-500 hover:text-slate-300">
                             <i class="fa-solid fa-pen-to-square ml-2"></i>
                         </RouterLink>
 

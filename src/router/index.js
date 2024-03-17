@@ -51,7 +51,7 @@ const router = createRouter({
       component: ShowProduct
     }, 
     {
-      path: '/EditProduct:/ProductId', 
+      path: '/EditProduct/:ProductId', 
       name: 'EditProduct', 
       component: EditProduct
     }, 

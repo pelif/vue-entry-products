@@ -67,7 +67,7 @@ export default {
 <template>
     <div class="relative px-6 py-6 bg-white border-gray-100 w-full rounded-lg shadow-md lg:mt-24 md:mt-60">
         <h2 class="font-bold text-lg">
-            <button class="text-2xl hover:text-slate-300">
+            <button @click="backPage" class="text-2xl hover:text-slate-300">
                 <i class="fa-solid fa-arrow-left mr-4"></i>
             </button>
             Novo Produto
