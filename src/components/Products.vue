@@ -52,15 +52,23 @@ export default {
                     }
                 })
                 .catch(error => console.log(error))
+        }, 
+
+        hideSpinner() {
+            const spinnerElement = document.querySelector('#loading')
+            spinnerElement.classList.add("hidden")  
         }
+        
     },
 
     beforeMount() {
-
-        setTimeout(alert(1111), 2000)        
+        const spinnerElement = document.querySelector('#loading')
+        spinnerElement.classList.remove('hidden')     
     }, 
 
     async mounted() {
+
+        setTimeout(this.hideSpinner, 2000)
 
         const router = useRoute()
 

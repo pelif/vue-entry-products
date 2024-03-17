@@ -37,10 +37,21 @@ export default {
                         }
                     })
                     .catch(error => console.log(error))
+        }, 
+
+        hideSpinner() {
+            const spinnerElement = document.querySelector('#loading')
+            spinnerElement.classList.add("hidden")  
         }
     }, 
 
+    beforeMount() {
+        const spinnerElement = document.querySelector('#loading')
+        spinnerElement.classList.remove('hidden')     
+    }, 
+
     mounted() {
+        setTimeout(this.hideSpinner, 2000)
         this.ProductId = this.$route.params.ProductId
         this.getProduct(this.ProductId)
         this.getNameCategory(this.ProductId)

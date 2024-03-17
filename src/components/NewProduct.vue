@@ -52,10 +52,23 @@ export default {
 
         backPage() {
             this.$router.back()
+        }, 
+
+        hideSpinner() {
+            const spinnerElement = document.querySelector('#loading')
+            spinnerElement.classList.add("hidden")  
         }
     }, 
 
-    async mounted() {        
+    beforeMount() {
+        const spinnerElement = document.querySelector('#loading')
+        spinnerElement.classList.remove('hidden')     
+    }, 
+
+    async mounted() {     
+        
+        setTimeout(this.hideSpinner, 2000)
+        
         await axios 
                 .get(`http://localhost:3000/categories`)
                 .then(response => (this.ObjCategory = response.data))

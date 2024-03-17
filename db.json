@@ -84,6 +84,15 @@
       "measure": "KG ",
       "details": "PRODUCT TEXT 001",
       "category_id": "41ea"
+    },
+    {
+      "id": "35cf",
+      "name": "TEclado Redragon Kumara 2552",
+      "description": "TEclado para equipe de desenvolvimento",
+      "price": "150",
+      "measure": "kg",
+      "details": "Teclado mecânico para produtividade de time de desenvolvimento",
+      "category_id": "41ea"
     }
   ]
 }

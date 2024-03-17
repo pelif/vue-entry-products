@@ -44,8 +44,24 @@
             
             backPage() {
                 this.$router.back()
+            }, 
+
+            hideSpinner() {
+                const spinnerElement = document.querySelector('#loading')
+                spinnerElement.classList.add("hidden")  
             }
+        }, 
+
+        beforeMount() {
+            const spinnerElement = document.querySelector('#loading')
+            spinnerElement.classList.remove('hidden')     
+        }, 
+
+        mounted() {
+            setTimeout(this.hideSpinner, 2000)
         }
+
+
 
     }
 </script>

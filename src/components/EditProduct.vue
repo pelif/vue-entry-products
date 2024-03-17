@@ -61,10 +61,22 @@ export default {
 
         async backPage() {
             await this.$router.back()
+        }, 
+
+        hideSpinner() {
+            const spinnerElement = document.querySelector('#loading')
+            spinnerElement.classList.add("hidden")  
         }
+
+    }, 
+
+    beforeMount() {
+        const spinnerElement = document.querySelector('#loading')
+        spinnerElement.classList.remove('hidden')     
     }, 
 
     mounted() {
+        setTimeout(this.hideSpinner, 2000)
         axios
             .get(`http://localhost:3000/categories`)
             .then(response => (this.categories = response.data))
