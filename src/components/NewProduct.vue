@@ -67,8 +67,8 @@ export default {
 
     async mounted() {     
         
-        setTimeout(this.hideSpinner, 2000)
-        
+        setTimeout(this.hideSpinner, 1000)
+
         await axios 
                 .get(`http://localhost:3000/categories`)
                 .then(response => (this.ObjCategory = response.data))

@@ -58,7 +58,7 @@
         }, 
 
         mounted() {
-            setTimeout(this.hideSpinner, 2000)
+            setTimeout(this.hideSpinner, 1000)
         }
 
 

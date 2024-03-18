@@ -32,15 +32,6 @@
       "category_id": "1"
     },
     {
-      "name": "TESTE APDATE 001",
-      "description": "TEST UPDATE 001",
-      "price": "100",
-      "measure": "KG",
-      "details": "TEST UPDATE 001 DETAILS",
-      "category_id": "1",
-      "id": "4c4b"
-    },
-    {
       "id": "33f5",
       "name": "Mouse Logitech m6",
       "description": "Mouse Logitech M6 para dia a dia de trabalho nos computadores da operação",
@@ -59,33 +50,6 @@
       "id": "b835"
     },
     {
-      "id": "e1b8",
-      "name": "TEST PRODCIT 001",
-      "description": "TEST PRD 001",
-      "price": "100",
-      "measure": "KG",
-      "details": "TEST PRD 001",
-      "category_id": "dc6e"
-    },
-    {
-      "id": "77ae",
-      "name": "TEST PRD 02",
-      "description": "TEST PRD 02",
-      "price": "100",
-      "measure": "KG",
-      "details": "TEST PRD 02",
-      "category_id": "339e"
-    },
-    {
-      "id": "aaa2",
-      "name": "PRODUCT 001",
-      "description": "PRODUCT 001",
-      "price": "100",
-      "measure": "KG ",
-      "details": "PRODUCT TEXT 001",
-      "category_id": "41ea"
-    },
-    {
       "id": "35cf",
       "name": "TEclado Redragon Kumara 2552",
       "description": "TEclado para equipe de desenvolvimento",
@@ -93,6 +57,15 @@
       "measure": "kg",
       "details": "Teclado mecânico para produtividade de time de desenvolvimento",
       "category_id": "41ea"
+    },
+    {
+      "id": "53b7",
+      "name": "MY NEW PRODUCT 001",
+      "description": "MY NEW PRODUCT 001",
+      "price": "150",
+      "measure": "KG",
+      "details": "MY NEW PRODUCT 001",
+      "category_id": "1"
     }
   ]
 }

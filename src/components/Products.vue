@@ -19,6 +19,31 @@ export default {
             await this.$router.go()
         },
 
+
+        async deleteProduct(id) {
+            await axios
+                    .delete(`http://localhost:3000/products/${id}`)
+                    .then((response) => {
+                        if(response.status == 201) {
+                            this.DestroyFlag = true
+                        }
+                    })
+                    .catch(error => this.DestroyFlag = false)
+
+            let query = {
+                result: 'error', 
+                msg: 'Não foi possível remover o produto!'
+            }; 
+            
+            if(this.DestroyFlag) {
+                query.result = 'success'
+                query.msg = 'Produto removido com sucesso'
+            }
+
+            this.$router.go(query)            
+
+        }, 
+
         async displayAlert() {
             const el = document.querySelector("#message");
 
@@ -68,7 +93,7 @@ export default {
 
     async mounted() {
 
-        setTimeout(this.hideSpinner, 2000)
+        setTimeout(this.hideSpinner, 1000)
 
         const router = useRoute()
 
@@ -153,7 +178,7 @@ export default {
                         </RouterLink>
 
                         <!-- Delete -->
-                        <button class="ml-2 hover:cursor-pointer">
+                        <button @click="deleteProduct(product.id)" class="ml-2 hover:cursor-pointer">
                             <i class="fa-solid fa-trash"></i>
                         </button>
 

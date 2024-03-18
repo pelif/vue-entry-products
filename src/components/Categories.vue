@@ -77,7 +77,7 @@ export default {
 
     mounted() {
 
-        setTimeout(this.hideSpinner, 2000)
+        setTimeout(this.hideSpinner, 1000)
 
         const router = useRoute()
 
@@ -91,9 +91,7 @@ export default {
             .get('http://localhost:3000/categories')
             .then(response => (this.categories = response.data))
             .catch(error => console.log(error))
-    }, 
-
-   
+    },   
 }
 </script>
 

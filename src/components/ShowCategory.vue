@@ -35,7 +35,7 @@ export default {
     }, 
     
     mounted() {       
-        setTimeout(this.hideSpinner, 2000) 
+        setTimeout(this.hideSpinner, 1000) 
         this.CategoryId = this.$route.params.CategoryId        
         this.getCategory(this.CategoryId)
     },     

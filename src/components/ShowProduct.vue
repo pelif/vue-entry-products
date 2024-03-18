@@ -51,7 +51,7 @@ export default {
     }, 
 
     mounted() {
-        setTimeout(this.hideSpinner, 2000)
+        setTimeout(this.hideSpinner, 1000)
         this.ProductId = this.$route.params.ProductId
         this.getProduct(this.ProductId)
         this.getNameCategory(this.ProductId)
