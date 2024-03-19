@@ -1,25 +1,32 @@
 <script>
-    export default {
-        name: 'Count', 
+import { onMounted, reactive, ref } from 'vue';
+
+export default {
+    name: 'Count',
+
+     setup() {
         
-        data() {
-            return {
-                count: 0
-            }
-        }, 
-
-        methods: {
-            increment() {
-                this.count++
-            }
-        }, 
-
-        mounted() {
-            console.log(`The initial count is ${this.count} `)
+        const obj = reactive({
+            count: 0              
+        })
+        
+        const increment = () => {
+            obj.count++
         }
-    }
+        
+        return {
+            increment, 
+            obj
+        }
+    }   
+}
 </script>
 
 <template>
-    <button class="text-white bg-cyan-700 py-2 px-2 rounded-xl hover:bg-cyan-300" @click="increment">Count is: {{  count }}</button>
+    <div class="relative px-6 py-6 bg-white border-gray-100 w-full rounded-lg shadow-md lg:mt-24 md:mt-60">
+        
+        <button 
+            class="text-white bg-cyan-700 py-3 px-3 rounded-xl hover:bg-cyan-300" 
+            @click="increment">Count is : {{obj.count}}</button>
+    </div>
 </template>

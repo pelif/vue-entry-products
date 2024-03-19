@@ -7,6 +7,7 @@ import Products from '@/components/Products.vue'
 import NewProduct from '@/components/NewProduct.vue' 
 import ShowProduct from '@/components/ShowProduct.vue'
 import EditProduct from '@/components/EditProduct.vue'
+import Count from '@/components/Count.vue'
 
 
 const router = createRouter({
@@ -55,7 +56,11 @@ const router = createRouter({
       name: 'EditProduct', 
       component: EditProduct
     }, 
-  
+    {
+      path: '/count', 
+      name: 'Count', 
+      component: Count
+    }  
   ]
 })
 
